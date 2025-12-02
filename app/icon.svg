@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#1a1a1a"/>
+  
+  <!-- Apple core shape - wider top and bottom, tapering in middle -->
+  <path d="M16 7C14.5 6.5 13 6.5 12 7.5C11 8.5 10.5 10 10.5 11.5C10.5 13 11 14.5 12 15.5C13 16.5 14.5 17 16 17C17.5 17 19 16.5 20 15.5C21 14.5 21.5 13 21.5 11.5C21.5 10 21 8.5 20 7.5C19 6.5 17.5 6.5 16 7Z" fill="#FFFFFF"/>
+  
+  <!-- Inner core detail (seed area) -->
+  <ellipse cx="16" cy="12" rx="1.5" ry="2.5" fill="#1a1a1a" opacity="0.3"/>
+  
+  <!-- Bite mark on the right side - prominent concave -->
+  <path d="M20.5 9.5C20.8 8.8 20.5 8.2 19.8 8C19.1 7.8 18.5 8.1 18.3 8.8C18.1 9.5 18.4 10.1 19.1 10.3C19.8 10.5 20.3 10.2 20.5 9.5Z" fill="#1a1a1a" opacity="0.4"/>
+  
+  <!-- Stem - upward curving -->
+  <path d="M16 5.5L15.8 6.5L16.2 6.5L16 5.5Z" fill="#FFFFFF"/>
+  <path d="M15.8 6.5Q16 7 16.2 6.5" stroke="#FFFFFF" stroke-width="0.4" fill="none"/>
+</svg>
+

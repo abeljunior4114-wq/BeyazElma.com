@@ -1,0 +1,23 @@
+{
+  "default": [
+    {
+      "id": "default_placeholder",
+      "name": "Official Rights Holder (requires license)",
+      "type": "generic_stream",
+      "url": "#"
+    }
+  ],
+  "turkey": [
+    {
+      "id": "bein_tr",
+      "name": "beIN Sports Turkey (requires license)",
+      "type": "turkish_stream",
+      "url": "#"
+    }
+  ]
+}
+
+
+
+
+
