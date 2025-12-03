@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { TeamLogo } from "./TeamLogo";
 
 export type Match = {
   match_id: string;
@@ -69,24 +70,12 @@ export function MatchCard({
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <div className="flex flex-1 items-center gap-3 sm:gap-4 min-w-0">
               <div className="relative flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-gradient-to-br from-background to-muted/20 border-2 border-muted/40 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-primary/30 transition-colors">
-                {match.home_team.logo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={match.home_team.logo}
-                    alt={match.home_team.name}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-1.5"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      if (target.parentElement) {
-                        target.parentElement.innerHTML = `<span class="text-sm font-bold text-muted">${match.home_team.name.charAt(0)}</span>`;
-                      }
-                    }}
-                  />
-                ) : (
-                  <span className="text-sm font-bold text-muted">{match.home_team.name.charAt(0)}</span>
-                )}
+                <TeamLogo
+                  src={match.home_team.logo}
+                  alt={match.home_team.name}
+                  fallbackText={match.home_team.name}
+                  className="h-full w-full object-contain p-1.5"
+                />
               </div>
               <span className="font-semibold text-sm sm:text-base text-text-dark truncate">{match.home_team.name}</span>
             </div>
@@ -97,24 +86,12 @@ export function MatchCard({
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <div className="flex flex-1 items-center gap-3 sm:gap-4 min-w-0">
               <div className="relative flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-gradient-to-br from-background to-muted/20 border-2 border-muted/40 flex items-center justify-center overflow-hidden shadow-sm group-hover:border-primary/30 transition-colors">
-                {match.away_team.logo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={match.away_team.logo}
-                    alt={match.away_team.name}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-1.5"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      if (target.parentElement) {
-                        target.parentElement.innerHTML = `<span class="text-sm font-bold text-muted">${match.away_team.name.charAt(0)}</span>`;
-                      }
-                    }}
-                  />
-                ) : (
-                  <span className="text-sm font-bold text-muted">{match.away_team.name.charAt(0)}</span>
-                )}
+                <TeamLogo
+                  src={match.away_team.logo}
+                  alt={match.away_team.name}
+                  fallbackText={match.away_team.name}
+                  className="h-full w-full object-contain p-1.5"
+                />
               </div>
               <span className="font-semibold text-sm sm:text-base text-text-dark truncate">{match.away_team.name}</span>
             </div>
@@ -142,12 +119,11 @@ export function MatchCard({
             <button
               type="button"
               className="rounded-lg sm:rounded-full border border-muted/50 bg-background px-3 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-200 whitespace-nowrap active:scale-95"
-              onClick={() => {
+              onClick={(e) => {
                 const url = `${window.location.origin}/matches/${match.match_id}`;
                 if (navigator.clipboard) {
                   navigator.clipboard.writeText(url).then(() => {
-                    // Better UX than alert
-                    const btn = event?.target as HTMLElement;
+                    const btn = e.currentTarget;
                     const original = btn.textContent;
                     btn.textContent = 'Copied!';
                     setTimeout(() => {

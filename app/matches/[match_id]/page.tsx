@@ -1,11 +1,36 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ChatPanel } from "@/components/ChatPanel";
+import { TeamLogoClient } from "@/components/TeamLogoClient";
 import { getMatchById } from "@/lib/matches";
+import type { Metadata } from "next";
 
 type MatchDetailPageProps = {
   params: { match_id: string };
 };
+
+export async function generateMetadata({ params }: MatchDetailPageProps): Promise<Metadata> {
+  const match = getMatchById(params.match_id);
+  
+  if (!match) {
+    return {
+      title: "Match Not Found"
+    };
+  }
+
+  const title = `${match.home_team.name} vs ${match.away_team.name}`;
+  const description = `Live match: ${match.home_team.name} ${match.home_team.score} - ${match.away_team.score} ${match.away_team.name}. ${match.competition.name}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website"
+    }
+  };
+}
 
 export default async function MatchDetailPage({ params }: MatchDetailPageProps) {
   const match = getMatchById(params.match_id);
@@ -67,24 +92,12 @@ export default async function MatchDetailPage({ params }: MatchDetailPageProps) 
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                     <div className="relative flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-background border border-muted/30 flex items-center justify-center overflow-hidden">
-                      {match.home_team.logo ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={match.home_team.logo}
-                          alt={match.home_team.name}
-                          loading="lazy"
-                          className="h-full w-full object-contain p-1.5"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            if (target.parentElement) {
-                              target.parentElement.innerHTML = `<span class="text-sm font-semibold text-muted">${match.home_team.name.charAt(0)}</span>`;
-                            }
-                          }}
-                        />
-                      ) : (
-                        <span className="text-sm font-semibold text-muted">{match.home_team.name.charAt(0)}</span>
-                      )}
+                      <TeamLogoClient
+                        src={match.home_team.logo}
+                        alt={match.home_team.name}
+                        fallbackText={match.home_team.name}
+                        className="h-full w-full object-contain p-1.5"
+                      />
                     </div>
                     <span className="text-base sm:text-lg font-semibold truncate">{match.home_team.name}</span>
                   </div>
@@ -95,24 +108,12 @@ export default async function MatchDetailPage({ params }: MatchDetailPageProps) 
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                     <div className="relative flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-background border border-muted/30 flex items-center justify-center overflow-hidden">
-                      {match.away_team.logo ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={match.away_team.logo}
-                          alt={match.away_team.name}
-                          loading="lazy"
-                          className="h-full w-full object-contain p-1.5"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            if (target.parentElement) {
-                              target.parentElement.innerHTML = `<span class="text-sm font-semibold text-muted">${match.away_team.name.charAt(0)}</span>`;
-                            }
-                          }}
-                        />
-                      ) : (
-                        <span className="text-sm font-semibold text-muted">{match.away_team.name.charAt(0)}</span>
-                      )}
+                      <TeamLogoClient
+                        src={match.away_team.logo}
+                        alt={match.away_team.name}
+                        fallbackText={match.away_team.name}
+                        className="h-full w-full object-contain p-1.5"
+                      />
                     </div>
                     <span className="text-base sm:text-lg font-semibold truncate">{match.away_team.name}</span>
                   </div>

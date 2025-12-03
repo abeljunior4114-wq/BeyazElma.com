@@ -31,18 +31,24 @@ export function ChatPanel({ matchId }: { matchId: string }) {
 
   useEffect(() => {
     const s = getSocket();
-    s.on("connect", () => setConnected(true));
-    s.on("disconnect", () => setConnected(false));
-    s.emit("chat:join", { match_id: matchId });
-
-    s.on("chat:message", (payload: ChatMessage) => {
+    
+    const handleConnect = () => setConnected(true);
+    const handleDisconnect = () => setConnected(false);
+    const handleMessage = (payload: ChatMessage) => {
       if (payload.match_id !== matchId) return;
       setMessages((prev) => [...prev.slice(-199), payload]);
-    });
+    };
+
+    s.on("connect", handleConnect);
+    s.on("disconnect", handleDisconnect);
+    s.on("chat:message", handleMessage);
+    s.emit("chat:join", { match_id: matchId });
 
     return () => {
       s.emit("chat:leave", { match_id: matchId });
-      s.off("chat:message");
+      s.off("connect", handleConnect);
+      s.off("disconnect", handleDisconnect);
+      s.off("chat:message", handleMessage);
     };
   }, [matchId]);
 

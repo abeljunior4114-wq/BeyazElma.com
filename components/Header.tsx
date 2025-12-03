@@ -13,6 +13,7 @@ export function Header() {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [isFocused, setIsFocused] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -30,15 +31,20 @@ export function Header() {
   useEffect(() => {
     if (!query.trim()) {
       setSuggestions([]);
+      setIsSearching(false);
       return;
     }
+    setIsSearching(true);
     const controller = new AbortController();
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
           signal: controller.signal
         });
-        if (!res.ok) return;
+        if (!res.ok) {
+          setIsSearching(false);
+          return;
+        }
         const data = await res.json();
         const items: Suggestion[] = (data.results || []).slice(0, 5).map((r: any) => ({
           id: r.id,
@@ -46,13 +52,18 @@ export function Header() {
           href: r.href
         }));
         setSuggestions(items);
-      } catch {
-        // ignore
+        setIsSearching(false);
+      } catch (error) {
+        if (error instanceof Error && error.name !== 'AbortError') {
+          setSuggestions([]);
+        }
+        setIsSearching(false);
       }
     }, 160);
     return () => {
       controller.abort();
       clearTimeout(timeout);
+      setIsSearching(false);
     };
   }, [query]);
 
