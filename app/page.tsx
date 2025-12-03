@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="pt-4 sm:pt-6">
             <Link
               href="/matches"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary bg-primary px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary bg-primary px-6 py-3.5 sm:py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 touch-manipulation min-h-[44px]"
             >
               Show all matches
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -22,10 +22,10 @@ export function FilterBar({
   return (
     <aside
       aria-label="Sport filters"
-      className="sticky top-16 md:top-20 space-y-2 sm:space-y-3 rounded-xl sm:rounded-2xl border border-muted/30 bg-white/90 p-3 shadow-sm backdrop-blur"
+      className="sticky top-16 md:top-20 space-y-2 sm:space-y-3 rounded-xl sm:rounded-2xl border border-muted/30 bg-white/90 p-3 sm:p-4 shadow-sm backdrop-blur"
     >
-      <h2 className="text-xs font-semibold uppercase tracking-wide text-muted mb-2">Sports</h2>
-      <div className="flex flex-wrap gap-1.5 sm:gap-2">
+      <h2 className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-muted mb-2 sm:mb-3">Sports</h2>
+      <div className="flex flex-wrap gap-2">
         {SPORTS.map((sport) => {
           const isActive = active === sport;
           return (
@@ -33,7 +33,7 @@ export function FilterBar({
               key={sport}
               type="button"
               onClick={() => onChange(sport)}
-              className={`rounded-full border px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-medium transition ${
+              className={`rounded-full border px-3 sm:px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium transition touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center ${
                 isActive
                   ? "border-primary bg-primary text-white shadow-sm"
                   : "border-muted/50 bg-background hover:border-primary/60 hover:text-primary active:scale-95"

@@ -141,7 +141,7 @@ export default async function MatchDetailPage({ params }: MatchDetailPageProps) 
                     <span className="font-medium truncate">{s.name}</span>
                     <button
                       type="button"
-                      className="rounded-full border border-muted/60 px-2 py-1 text-[10px] sm:text-[11px] text-muted hover:border-primary hover:text-primary transition self-start sm:self-auto"
+                      className="rounded-full border border-muted/60 px-3 py-2 sm:px-2 sm:py-1 text-[10px] sm:text-[11px] text-muted hover:border-primary hover:text-primary transition self-start sm:self-auto touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center"
                     >
                       Admin: paste official embed
                     </button>

@@ -101,24 +101,24 @@ export function MatchCard({
           </div>
         </div>
 
-        <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-2.5 border-t sm:border-t-0 sm:border-l border-muted/20 pt-3 sm:pt-0 sm:pl-4 sm:ml-2">
+        <div className="flex flex-row sm:flex-col items-stretch sm:items-end justify-between sm:justify-start gap-2 sm:gap-2.5 border-t sm:border-t-0 sm:border-l border-muted/20 pt-3 sm:pt-0 sm:pl-4 sm:ml-2">
           <Link
             href={`/matches/${match.match_id}`}
-            className="rounded-lg sm:rounded-full border-2 border-primary/60 bg-primary/5 px-4 py-2 sm:px-4 sm:py-2 font-semibold text-xs sm:text-sm text-primary hover:bg-primary hover:text-white transition-all duration-200 whitespace-nowrap active:scale-95"
+            className="flex-1 sm:flex-none rounded-lg sm:rounded-full border-2 border-primary/60 bg-primary/5 px-4 py-2.5 sm:px-4 sm:py-2 font-semibold text-xs sm:text-sm text-primary hover:bg-primary hover:text-white transition-all duration-200 whitespace-nowrap active:scale-95 text-center touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center"
           >
             Details
           </Link>
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="rounded-lg sm:rounded-full border border-muted/50 bg-background px-3 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-200 whitespace-nowrap active:scale-95"
+              className="rounded-lg sm:rounded-full border border-muted/50 bg-background px-3 py-2 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-200 whitespace-nowrap active:scale-95 touch-manipulation min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
               onClick={() => onOpenChat(match.match_id)}
             >
               Chat
             </button>
             <button
               type="button"
-              className="rounded-lg sm:rounded-full border border-muted/50 bg-background px-3 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-200 whitespace-nowrap active:scale-95"
+              className="rounded-lg sm:rounded-full border border-muted/50 bg-background px-3 py-2 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-200 whitespace-nowrap active:scale-95 touch-manipulation min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
               onClick={(e) => {
                 const url = `${window.location.origin}/matches/${match.match_id}`;
                 if (navigator.clipboard) {

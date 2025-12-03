@@ -52,18 +52,18 @@ export function MatchesListClient({
           type="button"
           disabled={page <= 1}
           onClick={() => goToPage(page - 1)}
-          className="rounded-full border border-muted/60 px-3 py-1 disabled:opacity-40"
+          className="rounded-full border border-muted/60 px-4 py-2.5 sm:px-3 sm:py-1 disabled:opacity-40 hover:border-primary hover:text-primary transition touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center"
         >
           Previous
         </button>
-        <span className="text-muted">
+        <span className="text-muted text-xs sm:text-sm">
           Page {page} of {totalPages}
         </span>
         <button
           type="button"
           disabled={page >= totalPages}
           onClick={() => goToPage(page + 1)}
-          className="rounded-full border border-muted/60 px-3 py-1 disabled:opacity-40"
+          className="rounded-full border border-muted/60 px-4 py-2.5 sm:px-3 sm:py-1 disabled:opacity-40 hover:border-primary hover:text-primary transition touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center"
         >
           Next
         </button>

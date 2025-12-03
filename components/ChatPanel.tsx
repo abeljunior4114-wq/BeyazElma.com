@@ -74,7 +74,7 @@ export function ChatPanel({ matchId }: { matchId: string }) {
     <section
       id="chat"
       aria-label="Match chat"
-      className="flex h-80 flex-col rounded-2xl border border-muted/40 bg-white/90"
+      className="flex h-[400px] sm:h-80 flex-col rounded-xl sm:rounded-2xl border border-muted/40 bg-white/90"
     >
       <header className="flex items-center justify-between border-b border-muted/30 px-3 py-2 text-xs">
         <span className="font-semibold">Match chat</span>
@@ -126,7 +126,7 @@ export function ChatPanel({ matchId }: { matchId: string }) {
           <button
             type="button"
             onClick={handleSend}
-            className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white"
+            className="rounded-full bg-primary px-4 py-2 sm:px-3 sm:py-1 text-xs sm:text-sm font-semibold text-white touch-manipulation min-w-[60px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
           >
             Send
           </button>

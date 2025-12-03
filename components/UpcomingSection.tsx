@@ -33,33 +33,33 @@ export function UpcomingSection({
           <h2 className="text-sm sm:text-base font-semibold text-text-dark">Upcoming matches</h2>
           <p className="text-xs text-muted mt-0.5">Next {timeFilter} hours</p>
         </div>
-        <div className="flex gap-1.5 sm:gap-2 text-[10px] sm:text-[11px]">
+        <div className="flex gap-2 text-xs sm:text-sm">
           <button
             onClick={() => setTimeFilter(24)}
-            className={`rounded-full border px-2.5 sm:px-3 py-1 font-medium transition ${
+            className={`rounded-full border px-3 sm:px-4 py-2 sm:py-1.5 font-medium transition touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center ${
               timeFilter === 24
                 ? "border-primary bg-primary/10 text-primary"
-                : "border-muted/60 text-muted hover:border-primary hover:text-primary"
+                : "border-muted/60 text-muted hover:border-primary hover:text-primary active:scale-95"
             }`}
           >
             Next 24h
           </button>
           <button
             onClick={() => setTimeFilter(48)}
-            className={`rounded-full border px-2.5 sm:px-3 py-1 font-medium transition ${
+            className={`rounded-full border px-3 sm:px-4 py-2 sm:py-1.5 font-medium transition touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center ${
               timeFilter === 48
                 ? "border-primary bg-primary/10 text-primary"
-                : "border-muted/60 text-muted hover:border-primary hover:text-primary"
+                : "border-muted/60 text-muted hover:border-primary hover:text-primary active:scale-95"
             }`}
           >
             48h
           </button>
           <button
             onClick={() => setTimeFilter(72)}
-            className={`rounded-full border px-2.5 sm:px-3 py-1 font-medium transition ${
+            className={`rounded-full border px-3 sm:px-4 py-2 sm:py-1.5 font-medium transition touch-manipulation min-h-[44px] sm:min-h-0 flex items-center justify-center ${
               timeFilter === 72
                 ? "border-primary bg-primary/10 text-primary"
-                : "border-muted/60 text-muted hover:border-primary hover:text-primary"
+                : "border-muted/60 text-muted hover:border-primary hover:text-primary active:scale-95"
             }`}
           >
             72h

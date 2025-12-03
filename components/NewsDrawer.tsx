@@ -31,7 +31,7 @@ export function NewsDrawer() {
       <button
         type="button"
         aria-label="Open sports news"
-        className="fixed right-2 sm:right-3 md:right-6 top-1/2 z-40 -translate-y-1/2 rounded-full bg-primary px-2.5 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs font-semibold text-white shadow-lg transition hover:bg-primary/90 active:scale-95 hidden lg:block"
+        className="fixed right-2 sm:right-3 md:right-6 top-1/2 z-40 -translate-y-1/2 rounded-full bg-primary px-3 py-2 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-lg transition hover:bg-primary/90 active:scale-95 hidden lg:block touch-manipulation min-w-[60px] min-h-[44px] flex items-center justify-center"
         onClick={() => setOpen(true)}
       >
         <span className="hidden sm:inline">Sports News</span>
@@ -47,14 +47,14 @@ export function NewsDrawer() {
           onClick={() => setOpen(false)}
         >
           <aside
-            className="absolute right-0 top-0 flex h-full w-full sm:w-96 max-w-md flex-col border-l border-muted/40 bg-background shadow-xl"
+            className="absolute right-0 top-0 flex h-full w-full sm:w-96 max-w-md flex-col border-l border-muted/40 bg-background shadow-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-muted/40 px-4 sm:px-5 py-3 sm:py-4">
               <h2 className="text-sm font-semibold tracking-tight">Latest Sports News</h2>
               <button
                 type="button"
-                className="text-xs text-muted hover:text-text-dark p-1 rounded transition"
+                className="text-xs text-muted hover:text-text-dark p-2 rounded transition touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
                 onClick={() => setOpen(false)}
                 aria-label="Close news drawer"
               >

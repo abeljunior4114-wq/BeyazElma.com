@@ -23,11 +23,11 @@ export default function MatchesPage({
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-4 px-4 py-5">
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-4 px-3 sm:px-4 py-4 sm:py-5">
         <header className="flex items-center justify-between gap-2">
           <div>
-            <h1 className="text-lg font-semibold tracking-tight">All matches</h1>
-            <p className="text-xs text-muted">
+            <h1 className="text-lg sm:text-xl font-semibold tracking-tight">All matches</h1>
+            <p className="text-xs sm:text-sm text-muted">
               Paginated list of live and upcoming fixtures.
             </p>
           </div>

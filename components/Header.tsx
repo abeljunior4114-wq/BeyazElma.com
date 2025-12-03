@@ -70,22 +70,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-800 bg-[#1a1a1a] backdrop-blur-md shadow-lg">
       <div className="mx-auto flex max-w-6xl flex-col gap-0 px-3 sm:px-4">
-        <div className="flex items-center justify-between gap-3 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 py-2.5 sm:py-3">
           <Link 
             href="/" 
-            className="flex items-center gap-2.5 flex-shrink-0 group"
+            className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0 group min-w-0"
             aria-label="BeyazElma Home"
           >
             <img 
               src="/logo.svg" 
               alt="BeyazElma" 
-              className="h-8 sm:h-9 w-auto group-hover:opacity-90 transition-opacity"
+              className="h-7 w-auto sm:h-9 group-hover:opacity-90 transition-opacity"
               width="200"
               height="40"
             />
           </Link>
 
-          <div className="relative flex-1 max-w-md mx-2 sm:mx-4">
+          <div className="relative flex-1 max-w-xs sm:max-w-md mx-1 sm:mx-2 md:mx-4 min-w-0">
             <label className="sr-only" htmlFor="main-search">
               Search matches, teams, leagues
             </label>
@@ -94,8 +94,8 @@ export function Header() {
                 id="main-search"
                 ref={inputRef}
                 type="search"
-                placeholder="Search teams, leagues..."
-                className="w-full rounded-xl border-2 border-muted/50 bg-white px-4 py-2 sm:py-2.5 text-sm shadow-sm outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-muted"
+                placeholder="Search..."
+                className="w-full rounded-lg sm:rounded-xl border-2 border-muted/50 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm shadow-sm outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-muted"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onFocus={() => setIsFocused(true)}
@@ -130,7 +130,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors text-white"
+            className="md:hidden p-2.5 min-w-[44px] min-h-[44px] rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors text-white touch-manipulation"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
           >

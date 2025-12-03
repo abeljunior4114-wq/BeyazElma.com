@@ -31,6 +31,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="bg-background text-text-dark">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+      </head>
       <body className="min-h-screen font-sans bg-background text-text-dark antialiased">
         {children}
       </body>
